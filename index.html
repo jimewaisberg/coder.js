@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Calificación Académica</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>📚 Simulador de Calificación Académica 📚</h1>
+    </header>
+    
+    <div class="contenedor">
+        <h2> Bienvenido al Simulador</h2>
+        <p>Este simulador permite al estudiante ingresar todas las notas que uno desee, calcular su promedio y recibir un feedback sobre su rendimiento académico. Además, el usuario puede calcular la nota que necesita en su próxima evaluación para alcanzar un promedio específico.</p>
+        
+        <div class="seccion1">
+            <label for="notaInput">✏️ Nota:</label>
+            <button onclick="agregarnota()">➕ Agregar</button>
+        </div>
+
+        <div class="botones">
+            <button onclick="mostrarpromedio()">📈 Calcular Promedio</button>
+            <button onclick="notameta()">🎯 Promedio Deseado</button>
+            <button onclick="reiniciar()">🔄 Reiniciar</button>
+        </div>
+
+        <div class="output" id="output"></div>
+    </div>
+
+    <footer>
+        <p>Recorda: ¡El esfuerzo siempre tiene recompensa! 🚀📈</p>
+    </footer>
+
+    <script src="js/simulador.js"></script>
+</body>
+</html>
+
