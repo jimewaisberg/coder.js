@@ -20,82 +20,192 @@ header {
     text-align: center;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 header h1 {
     margin: 0;
     color: #333;
     font-size: 28px;
-    font-family: 'Patrick Hand'
+    font-family: 'Patrick Hand', cursive;
 }
 
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+}
 
-.contenedor {
+#simulador, #informe {
     background-color: #ffffff;
     border: 2px dashed #90cdf4;
-    padding: 25px;
-    border-radius: 8px;
+    padding: 30px;
+    border-radius: 12px;
     width: 90%;
-    max-width: 500px;
+    max-width: 600px;
     text-align: center;
     margin-top: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-    font-size: 22px;
+    font-size: 24px;
     color: #2d3748;
     font-family: 'Patrick Hand', cursive;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 p {
-    font-size: 15px;
+    font-size: 16px;
     color: #4a5568;
+    margin-bottom: 20px;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+form, button, #resultado {
     margin-bottom: 20px;
 }
 
-.seccion1{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 15px;
-    justify-content: center;
+input[type="number"] {
+    width: 70%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #d3dce6;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+    appearance: textfield;
 }
 
-label {
-    font-size: 16px;
-    color: #333;
+input[type="number"]:focus {
+    border-color: #90cdf4;
+    box-shadow: 0 0 5px rgba(144, 205, 244, 0.5);
 }
 
 button {
     background-color: #90cdf4;
     color: #ffffff;
     border: none;
-    padding: 10px 20px;
-    font-size: 15px;
-    border-radius: 6px;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
     background-color: #63b3ed;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(99, 179, 237, 0.3);
 }
 
-.botones {
-    display: flex;
-    gap: 15px;
+#resultado {
+    font-size: 18px;
+    color: #4a5568;
+    text-align: left;
+    background-color: #f7fafc;
+    border: 1px solid #d3dce6;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.feedback-excelente {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.feedback-bueno {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.feedback-malo {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 6px;
+}
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); 
     justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 15px;
+    align-items: center;
+    backdrop-filter: blur(5px); 
+    animation: fadeIn 0.5s ease-in-out; 
 }
 
-footer {
-    margin-top: 20px;
-    font-size: 16px;
-    color: #63b3ed;
+.modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    max-width: 450px;
+    width: 90%;
     text-align: center;
-    padding: 10px 0;
+    position: relative; 
+    animation: popIn 0.3s ease-in-out; 
 }
+
+
+.cerrar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #ff6b6b;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.cerrar:hover {
+    color: #e63946; 
+}
+
+
+.modal-content button {
+    background-color: #90cdf4;
+    border: none;
+    padding: 10px 20px;
+    color: #ffffff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-content button:hover {
+    background-color: #63b3ed;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(99, 179, 237, 0.4);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+

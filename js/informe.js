@@ -1,32 +1,35 @@
-
-function obtenerPromedioURL() {
-    const params = new URLSearchParams(window.location.search);
-    const promedio = parseFloat(params.get('promedio'));
-
-    if (!isNaN(promedio)) {
-        return promedio;
-    } else {
-        alert("No se encontró el promedio. Regresando al simulador.");
-        window.location.href = "index.html";
-    }
+function obtenerDatos() {
+    return JSON.parse(localStorage.getItem("simuladorData"));
 }
+
 function mostrarResultados() {
-    const promedio = obtenerPromedioURL();
-    const resultadoPromedio = document.getElementById("resultadopromedio");
-    const mensajeFeedback = document.getElementById("mensajefeedback");
+    const data = obtenerDatos();
+    const resultadoPromedio = document.getElementById("resultado-promedio");
+    const mensajeFeedback = document.getElementById("mensaje-feedback");
 
-    resultadoPromedio.innerHTML = `Tu promedio final es: <strong>${promedio}</strong>`;
+    if (data && data.promedio !== null) {
+        const promedio = parseFloat(data.promedio);
+        resultadoPromedio.innerHTML = `Tu promedio final es: <strong>${promedio.toFixed(2)}</strong>`;
 
-    if (promedio >= 8) {
-        mensajeFeedback.innerHTML = "¡Felicidades! 🌟 Has alcanzado un rendimiento excelente. ¡Sigue así!";
-    } else if (promedio >= 5) {
-        mensajeFeedback.innerHTML = "Buen trabajo 👍. Puedes mejorar aún más si te lo propones.";
+        if (promedio >= 8) {
+            mensajeFeedback.innerHTML = "¡Felicidades! 🌟 Has alcanzado un rendimiento excelente. ¡Sigue así!";
+            mensajeFeedback.className = "feedback-excelente";
+        } else if (promedio >= 5) {
+            mensajeFeedback.innerHTML = "Buen trabajo 👍. Puedes mejorar aún más si te lo propones.";
+            mensajeFeedback.className = "feedback-bueno";
+        } else {
+            mensajeFeedback.innerHTML = "Necesitas mejorar 📉. ¡No te desanimes y sigue practicando!";
+            mensajeFeedback.className = "feedback-malo";
+        }
     } else {
-        mensajeFeedback.innerHTML = "Necesitas mejorar 📉. ¡No te desanimes y sigue practicando!";
+        resultadoPromedio.innerHTML = "No se encontró un promedio guardado. Por favor, regresa al simulador.";
+        mensajeFeedback.innerHTML = "";
     }
 }
+
 function volverInicio() {
     window.location.href = "index.html";
 }
 
+document.getElementById("volver-inicio").addEventListener("click", volverInicio);
 document.addEventListener("DOMContentLoaded", mostrarResultados);
