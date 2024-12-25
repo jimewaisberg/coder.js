@@ -31,6 +31,23 @@ header h1 {
     font-size: 28px;
     font-family: 'Patrick Hand', cursive;
 }
+.resultado-simulador {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e3f2fd;
+    border: 1px solid #90cdf4;
+    border-radius: 5px;
+}
+.btn-simulador {
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
 
 main {
     flex-grow: 1;
@@ -88,6 +105,13 @@ input[type="number"]:focus {
     border-color: #90cdf4;
     box-shadow: 0 0 5px rgba(144, 205, 244, 0.5);
 }
+#form-notas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; 
+}
+
 
 button {
     background-color: #90cdf4;
@@ -101,7 +125,7 @@ button {
 }
 
 button:hover {
-    background-color: #63b3ed;
+  
     transform: translateY(-3px);
     box-shadow: 0 4px 8px rgba(99, 179, 237, 0.3);
 }
@@ -155,7 +179,7 @@ button:hover {
 
 .modal-content {
     background-color: #ffffff;
-    padding: 30px;
+    padding: 50px;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     max-width: 450px;
@@ -183,7 +207,7 @@ button:hover {
 
 
 .modal-content button {
-    background-color: #90cdf4;
+    background-color:#90cdf4;
     border: none;
     padding: 10px 20px;
     color: #ffffff;
@@ -195,10 +219,84 @@ button:hover {
 }
 
 .modal-content button:hover {
-    background-color: #63b3ed;
+    background-color: #90cdf4;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(99, 179, 237, 0.4);
 }
+.intro {
+    padding: 70px;
+    margin-top: 100px;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    max-width: 500px;
+    width: 90%;
+    border: 2px solid #90cdf4; 
+    background: linear-gradient(135deg, rgba(144, 205, 244, 0.2), rgba(99, 179, 237, 0.1)); /* Fondo degradado translúcido */
+    text-align: center;
+    backdrop-filter: blur(10px); 
+}
+
+.intro h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: black; 
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Sombra ligera en el texto */
+}
+
+.intro p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.7;
+    color: #333; 
+    font-weight: 500;
+}
+.btn {
+    background-color: #ffcc80; 
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 15px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; 
+}
+.btn:hover {
+    background-color: #ffc267; 
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(255, 193, 7, 0.4);
+}
+
+.volver-container {
+    position: absolute; 
+    top: 80px; 
+    left: 20px; 
+    z-index: 1000;
+    padding: 10px;
+    background: none; 
+}
+
+.btn-volver {
+    background: none !important;
+    color: BLACK !important; 
+    font-weight: 200;
+    border: none; 
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: underline; 
+    padding: 0; 
+    box-shadow: none !important; 
+    transition: none;
+}
+
+.btn-volver:hover {
+    color: #555; 
+    transform: none;
+    background: none !important; 
+    box-shadow: none !important; 
+}
+
 
 @keyframes fadeIn {
     from {
@@ -208,4 +306,16 @@ button:hover {
         opacity: 1;
     }
 }
+
+#graficoPromedios {
+    max-width: 600px; 
+    height: 700px; 
+    margin: 30px auto; 
+    padding: 20px; 
+    border-radius: 15px; 
+    background-color: #ffffff; 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); 
+    border: 1px solid #ddd; 
+}
+
 

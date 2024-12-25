@@ -1,4 +1,26 @@
 {
-  "notas": [],
-  "promedio": null
+  "estudiantes": [
+    { 
+      "nombre": "Jimena", 
+      "materias": [
+        { "nombre": "Matemáticas", "notas": [7, 8, 9] },
+        { "nombre": "Historia", "notas": [6, 7, 8] }
+        
+      ]
+    },
+    { 
+      "nombre": "Gaston", 
+      "materias": [
+        { "nombre": "Matemáticas", "notas": [5, 6, 7] },
+        { "nombre": "Historia", "notas": [6, 5, 8] }
+      ]
+    },
+    { 
+      "nombre": "Sofía", 
+      "materias": [
+        { "nombre": "Matemáticas", "notas": [9, 10, 8] },
+        { "nombre": "Historia", "notas": [8, 9, 7] }
+      ]
+    }
+  ]
 }
